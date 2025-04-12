@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>This is the shop</h1>
-    <button @click="catalogueDataStore.toggleFilterSidebar">click</button>
+    <button @click="test">click</button>
     <SidebarContainer />
     <div class="flex flex-wrap gap-4 justify-center">
       <ProductCard
@@ -20,4 +20,7 @@ import SidebarContainer from "@/components/shopviewcomponents/SidebarContainer.v
 import { useCatalogueDataStore } from "@/stores/CatalogueDataStore.js";
 
 const catalogueDataStore = useCatalogueDataStore();
+function test() {
+  console.log(catalogueDataStore.filterableCategories);
+}
 </script>

@@ -8,16 +8,24 @@
       :class="'text-2xl font-medium absolute right-2 top-2 p-0 m-0'"
       @click="catalogueDataStore.toggleFilterSidebar"
     />
-    <SidebarFilterHeader
-      v-if="catalogueDataStore.filterSidebarVisible"
-      v-for="category of catalogueDataStore.filterableCategories"
-      :filterTitle="category"
-    />
+    <section class="flex flex-col items-center">
+      <SidebarFilterHeader
+        v-if="catalogueDataStore.filterSidebarVisible"
+        v-for="category of catalogueDataStore.filterData"
+        :filterTitle="category.filterName"
+      >
+        <SidebarFilterOptions
+          v-for="option of category.filterOptions"
+          :optionName="option"
+        />
+      </SidebarFilterHeader>
+    </section>
   </aside>
 </template>
 <script setup>
 import SidebarFilterHeader from "@/components/shopviewcomponents/SidebarFilterHeader.vue";
 import TheButton from "../universalcomponents/TheButton.vue";
+import SidebarFilterOptions from "./SidebarFilterOptions.vue";
 import { useCatalogueDataStore } from "@/stores/CatalogueDataStore.js";
 
 const catalogueDataStore = useCatalogueDataStore();

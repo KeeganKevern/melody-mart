@@ -1,10 +1,25 @@
 <template>
-  <h3 class="text-2xl border-b-4 border-gray-300 text-right m-4 cursor-pointer">
-    {{ filterTitle }}
-  </h3>
+  <div
+    class="flex justify-between text-2xl border-b-4 border-gray-300 m-4 w-4/5"
+  >
+    <h3 class="text-right cursor-pointer mr-3">
+      {{ filterTitle }}
+    </h3>
+    <TheButton @click="handleClick" :buttonText="openCloseState" />
+  </div>
+
+  <slot v-if="openCloseState === '-'"></slot>
 </template>
 <script setup>
+import TheButton from "../universalcomponents/TheButton.vue";
+import { ref } from "vue";
 const props = defineProps({
   filterTitle: { type: String, required: true },
 });
+
+const openCloseState = ref("+");
+
+function handleClick() {
+  openCloseState.value = openCloseState.value === "+" ? "-" : "+";
+}
 </script>
