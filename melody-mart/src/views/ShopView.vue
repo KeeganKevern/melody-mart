@@ -5,7 +5,7 @@
     <SidebarContainer />
     <div class="flex flex-wrap gap-4 justify-center">
       <ProductCard
-        v-for="product in catalogueDataStore.catalogueOfProducts"
+        v-for="product in catalogueDataStore.productsToDisplay"
         :instrumentName="product.instrumentName"
         :price="product.price"
         :imagePath="product.imagePath"
@@ -21,6 +21,7 @@ import { useCatalogueDataStore } from "@/stores/CatalogueDataStore.js";
 
 const catalogueDataStore = useCatalogueDataStore();
 function test() {
-  console.log(catalogueDataStore.filterableCategories);
+  console.log(catalogueDataStore.listOfSelectedFilters.value);
+  catalogueDataStore.updateProductsToDisplay();
 }
 </script>

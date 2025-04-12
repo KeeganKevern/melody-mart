@@ -90,9 +90,7 @@ export const useCatalogueDataStore = defineStore("CatalogueData", () => {
     },
   ]);
 
-  populateFilterData();
-
-  //This is for dynamically creating the filters
+  //This is for dynamically creating the filter options
   function populateFilterData() {
     //Create array from catalogueOfProducts
     const categoryOptions = ref([]);
@@ -107,7 +105,6 @@ export const useCatalogueDataStore = defineStore("CatalogueData", () => {
       }
     }
     filterData.value.forEach((item) => {
-      console.log(item.filterName);
       if (item.filterName === "CATEGORY") {
         item.filterOptions = categoryOptions.value;
       }
@@ -121,17 +118,114 @@ export const useCatalogueDataStore = defineStore("CatalogueData", () => {
   const sidebarIconPath = ref("../src/assets/icons/hamburgerIcon.svg");
 
   function toggleFilterSidebar() {
-    populateFilterData;
+    populateFilterData();
     filterSidebarVisible.value = !filterSidebarVisible.value;
     filterSidebarVisible.value === true
       ? (sidebarIconPath.value = "../src/assets/icons/cross.svg")
       : (sidebarIconPath.value = "../src/assets/icons/hamburgerIcon.svg");
   }
+
+  //I need to create an array of products based on selected filters.
+  //The products come from the catalogue of products.
+  //If no filters are selected, all products are shown.
+  const productsToDisplay = ref(null);
+  const listOfSelectedFilters = ref(null);
+
+  function updateFilterList(filter) {
+    console.log(filter);
+    //If list of filters is null, initialise it into an array
+    if (!listOfSelectedFilters.value) {
+      listOfSelectedFilters.value = [];
+    }
+
+    const filterAlreadySelected = listOfSelectedFilters.value.includes(filter);
+
+    //if already selected, checkbox has been unchecked. Remove filter from array.
+    if (filterAlreadySelected) {
+      const index = listOfSelectedFilters.value.indexOf(filter);
+      listOfSelectedFilters.value.splice(index, 1);
+    } else {
+      listOfSelectedFilters.value.push(filter);
+    }
+
+    if (listOfSelectedFilters.value.length === 0) {
+      listOfSelectedFilters.value = null;
+    }
+  }
+
+  function updateProductsToDisplay() {
+    productsToDisplay.value = [];
+    console.log(listOfSelectedFilters.value);
+
+    if (!listOfSelectedFilters.value) {
+      productsToDisplay.value = catalogueOfProducts;
+    } else {
+      //If no colours are selected, add all colours to filters.
+      const colourFilterSelected = catalogueOfProducts.some((product) =>
+        listOfSelectedFilters.value.includes(product.colour)
+      );
+      if (!colourFilterSelected) {
+        catalogueOfProducts.forEach((product) => {
+          if (!listOfSelectedFilters.value.includes(product.colour)) {
+            listOfSelectedFilters.value.push(product.colour);
+          }
+        });
+      }
+
+      //If no categories are selected, add all colours to filters.
+      const categoryFilterSelected = catalogueOfProducts.some((product) =>
+        listOfSelectedFilters.value.includes(product.instrumentCategory)
+      );
+      if (!categoryFilterSelected) {
+        catalogueOfProducts.forEach((product) => {
+          if (
+            !listOfSelectedFilters.value.includes(product.instrumentCategory)
+          ) {
+            listOfSelectedFilters.value.push(product.instrumentCategory);
+          }
+        });
+      }
+
+      console.log(listOfSelectedFilters.value);
+      let temp = [];
+      let temp2 = [];
+
+      listOfSelectedFilters.value.forEach((filter) => {
+        catalogueOfProducts.forEach((product) => {
+          if (!temp.includes(product)) {
+            if (product.instrumentCategory === filter) {
+              temp.push(product);
+            }
+          }
+        });
+      });
+
+      listOfSelectedFilters.value.forEach((filter) => {
+        temp.forEach((product) => {
+          if (!temp2.includes(product)) {
+            if (product.colour === filter) {
+              temp2.push(product);
+            }
+          }
+        });
+      });
+
+      productsToDisplay.value = temp2;
+    }
+    toggleFilterSidebar();
+    listOfSelectedFilters.value = null;
+  }
+
+  populateFilterData();
+  updateProductsToDisplay();
   return {
-    catalogueOfProducts,
+    productsToDisplay,
     filterData,
     filterSidebarVisible,
     sidebarIconPath,
+    listOfSelectedFilters,
     toggleFilterSidebar,
+    updateProductsToDisplay,
+    updateFilterList,
   };
 });

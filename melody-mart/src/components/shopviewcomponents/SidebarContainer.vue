@@ -19,6 +19,12 @@
           :optionName="option"
         />
       </SidebarFilterHeader>
+      <TheButton
+        v-if="catalogueDataStore.filterSidebarVisible"
+        :buttonText="'Apply Filters'"
+        :class="'border-2 p-2 rounded-sm cursor-pointer border-emerald-500 hover:bg-emerald-500 hover:text-white text-emerald-500 font-bold'"
+        @click="catalogueDataStore.updateProductsToDisplay"
+      />
     </section>
   </aside>
 </template>
