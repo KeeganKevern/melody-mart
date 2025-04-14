@@ -1,14 +1,13 @@
 <template>
-  <div>
-    <h1>This is the shop</h1>
-    <button @click="test">click</button>
+  <div class="pt-12">
     <SidebarContainer />
-    <div class="flex flex-wrap gap-4 justify-center sm:mx-12">
+    <div class="flex flex-wrap gap-4 justify-center">
       <ProductCard
         v-for="product in catalogueDataStore.productsToDisplay"
         :instrumentName="product.instrumentName"
         :price="product.price"
         :imagePath="product.imagePath"
+        :cardClass="'md:max-w-1/3 lg:max-w-1/4 grid grid-rows-auto text-center bg-white p-2 md:p-4 md:mx-12 lg:my-4 lg:shadow-lg border-2 border-gray-200 rounded-sm'"
       />
     </div>
   </div>
@@ -20,8 +19,4 @@ import SidebarContainer from "@/components/shopviewcomponents/SidebarContainer.v
 import { useCatalogueDataStore } from "@/stores/CatalogueDataStore.js";
 
 const catalogueDataStore = useCatalogueDataStore();
-function test() {
-  console.log(catalogueDataStore.listOfSelectedFilters.value);
-  catalogueDataStore.updateProductsToDisplay();
-}
 </script>

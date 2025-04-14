@@ -155,7 +155,6 @@ export const useCatalogueDataStore = defineStore("CatalogueData", () => {
 
   function updateProductsToDisplay() {
     productsToDisplay.value = [];
-    console.log(listOfSelectedFilters.value);
 
     if (!listOfSelectedFilters.value) {
       productsToDisplay.value = catalogueOfProducts;
@@ -219,6 +218,7 @@ export const useCatalogueDataStore = defineStore("CatalogueData", () => {
   populateFilterData();
   updateProductsToDisplay();
   return {
+    catalogueOfProducts,
     productsToDisplay,
     filterData,
     filterSidebarVisible,

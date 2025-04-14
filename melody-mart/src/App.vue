@@ -5,7 +5,7 @@ import ThemeSlider from "@/components/headercomponents/ThemeSlider.vue";
 
 <template>
   <header
-    class="flex flex-col sticky top-0 w-full items-center justify-between bg-amber-900 text-white"
+    class="flex flex-col sticky top-0 w-full items-center justify-between bg-amber-900 text-white z-100"
   >
     <h1 class="text-4xl font-extrabold italic m-5">Melody-Mart</h1>
     <ThemeSlider class="absolute left-5 top-5" />

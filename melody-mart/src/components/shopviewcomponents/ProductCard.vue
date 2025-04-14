@@ -1,6 +1,7 @@
 <template>
   <div
-    class="min-w-1/4 max-w-1/2 md:max-w-1/3 lg:max-w-1/4 grid grid-rows-auto text-center bg-white p-2 md:p-4 md:mx-12 lg:my-4 lg:shadow-lg border-2 border-gray-200 rounded-sm"
+    class="grid grid-rows-auto text-center bg-white border-2 border-gray-200 rounded-sm opacity-100"
+    :class="cardClass"
   >
     <img
       :src="imagePath"
@@ -21,5 +22,6 @@ defineProps({
   instrumentName: { type: String, required: true },
   price: { type: Number, required: true },
   imagePath: { type: String, required: true },
+  cardClass: { type: String, required: true },
 });
 </script>
