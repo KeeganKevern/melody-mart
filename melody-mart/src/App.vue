@@ -10,7 +10,7 @@ import ThemeSlider from "@/components/headercomponents/ThemeSlider.vue";
     <h1 class="text-4xl font-extrabold italic m-5">Melody-Mart</h1>
     <ThemeSlider class="absolute left-5 top-5" />
 
-    <nav class="flex justify-evenly w-full mb-5">
+    <nav class="flex justify-evenly w-full mb-5 text-xl md:text-2xl">
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/shop" class="">Shop</RouterLink>
       <RouterLink to="/contact">Contact</RouterLink>

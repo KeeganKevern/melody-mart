@@ -3,7 +3,7 @@
     <h1>This is the shop</h1>
     <button @click="test">click</button>
     <SidebarContainer />
-    <div class="flex flex-wrap gap-4 justify-center">
+    <div class="flex flex-wrap gap-4 justify-center sm:mx-12">
       <ProductCard
         v-for="product in catalogueDataStore.productsToDisplay"
         :instrumentName="product.instrumentName"

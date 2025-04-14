@@ -3,7 +3,7 @@
     <label :for="optionName">{{ optionName }}</label>
     <input
       type="checkbox"
-      class="size-4 appearance-none border-2 border-gray-300 checked:bg-amber-200"
+      class="size-4 md:size-8 appearance-none border-2 border-gray-300 checked:bg-amber-200"
       :id="optionName"
       :name="optionName"
       @click="catalogueDataStore.updateFilterList(optionName)"

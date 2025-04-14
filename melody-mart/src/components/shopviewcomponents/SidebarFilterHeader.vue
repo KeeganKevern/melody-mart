@@ -1,11 +1,15 @@
 <template>
   <div
-    class="flex justify-between text-2xl border-b-4 border-gray-300 m-4 w-4/5"
+    class="flex justify-between text-2xl md:text-4xl border-b-4 border-gray-300 m-4 md:m-8 w-4/5"
   >
     <h3 class="text-right cursor-pointer mr-3">
       {{ filterTitle }}
     </h3>
-    <TheButton @click="handleClick" :buttonText="openCloseState" />
+    <TheButton
+      @click="handleClick"
+      :buttonText="openCloseState"
+      :class="'cursor-pointer'"
+    />
   </div>
 
   <slot v-if="openCloseState === '-'"></slot>

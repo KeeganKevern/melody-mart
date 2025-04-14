@@ -1,6 +1,6 @@
 <template>
   <div
-    class="grid grid-rows-auto text-center bg-white md:w-2/10 p-2 md:p-4 md:mx-12 lg:my-4 lg:shadow-lg border-2 border-gray-200 rounded-sm"
+    class="min-w-1/4 max-w-1/2 md:max-w-1/3 lg:max-w-1/4 grid grid-rows-auto text-center bg-white p-2 md:p-4 md:mx-12 lg:my-4 lg:shadow-lg border-2 border-gray-200 rounded-sm"
   >
     <img
       :src="imagePath"
