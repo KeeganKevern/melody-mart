@@ -7,7 +7,7 @@
         :instrumentName="product.instrumentName"
         :price="product.price"
         :imagePath="product.imagePath"
-        :cardClass="'md:max-w-1/3 lg:max-w-1/4 grid grid-rows-auto text-center bg-white p-2 md:p-4 md:mx-12 lg:my-4 lg:shadow-lg border-2 border-gray-200 rounded-sm'"
+        :cardClass="'md:max-w-1/3 lg:max-w-1/4  p-2 md:p-4 md:mx-12 lg:my-4 lg:shadow-lg'"
       />
     </div>
   </div>

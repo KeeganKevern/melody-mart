@@ -10,7 +10,7 @@
     />
     <section class="flex flex-col items-center gap-2 md:gap-4 md:text-3xl">
       <SidebarFilterHeader
-        v-if="catalogueDataStore.filterSidebarVisible"
+        v-if="catalogueDataStore.filterSidebarHidden"
         v-for="category of catalogueDataStore.filterData"
         :filterTitle="category.filterName"
       >
@@ -20,7 +20,7 @@
         />
       </SidebarFilterHeader>
       <TheButton
-        v-if="catalogueDataStore.filterSidebarVisible"
+        v-if="catalogueDataStore.filterSidebarHidden"
         :buttonText="'Apply Filters'"
         :class="'border-2 p-2 md:p-4 rounded-sm cursor-pointer border-emerald-500 hover:bg-emerald-500 hover:text-white text-emerald-500 font-bold'"
         @click="catalogueDataStore.updateProductsToDisplay"

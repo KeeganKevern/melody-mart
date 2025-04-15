@@ -1,11 +1,16 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import ThemeSlider from "@/components/headercomponents/ThemeSlider.vue";
+
+import "aos/dist/aos.css";
+import AOS from "aos";
+
+AOS.init();
 </script>
 
 <template>
   <header
-    class="flex flex-col sticky top-0 w-full items-center justify-between bg-amber-900 text-white z-100"
+    class="flex flex-col sticky top-0 w-full items-center justify-between bg-amber-900 text-white z-10"
   >
     <h1 class="text-4xl font-extrabold italic m-5">Melody-Mart</h1>
     <ThemeSlider class="absolute left-5 top-5" />
@@ -22,7 +27,7 @@ import ThemeSlider from "@/components/headercomponents/ThemeSlider.vue";
   <RouterView class="bg-[url(../assets/images/backgroundImage.png)] p-4" />
 
   <footer
-    class="grid grid-cols-4 grid-rows-2 bg-amber-900 text-white font-bold"
+    class="grid grid-cols-4 grid-rows-2 bg-amber-900 text-white font-bold z-10"
   >
     <button>Back to top</button>
     <div class="col-span-2 flex gap-2 justify-center items-center">

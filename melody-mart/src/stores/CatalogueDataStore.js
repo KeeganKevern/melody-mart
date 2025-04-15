@@ -114,25 +114,21 @@ export const useCatalogueDataStore = defineStore("CatalogueData", () => {
     });
   }
 
-  const filterSidebarVisible = ref(false);
+  const filterSidebarHidden = ref(true);
   const sidebarIconPath = ref("../src/assets/icons/hamburgerIcon.svg");
 
   function toggleFilterSidebar() {
     populateFilterData();
-    filterSidebarVisible.value = !filterSidebarVisible.value;
-    filterSidebarVisible.value === true
+    filterSidebarHidden.value = !filterSidebarHidden.value;
+    filterSidebarHidden.value === true
       ? (sidebarIconPath.value = "../src/assets/icons/cross.svg")
       : (sidebarIconPath.value = "../src/assets/icons/hamburgerIcon.svg");
   }
 
-  //I need to create an array of products based on selected filters.
-  //The products come from the catalogue of products.
-  //If no filters are selected, all products are shown.
   const productsToDisplay = ref(null);
   const listOfSelectedFilters = ref(null);
 
   function updateFilterList(filter) {
-    console.log(filter);
     //If list of filters is null, initialise it into an array
     if (!listOfSelectedFilters.value) {
       listOfSelectedFilters.value = [];
@@ -221,7 +217,7 @@ export const useCatalogueDataStore = defineStore("CatalogueData", () => {
     catalogueOfProducts,
     productsToDisplay,
     filterData,
-    filterSidebarVisible,
+    filterSidebarHidden,
     sidebarIconPath,
     listOfSelectedFilters,
     toggleFilterSidebar,

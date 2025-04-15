@@ -1,13 +1,12 @@
 <template>
   <swiper
-    class="group mixed-blend-overlay"
     :modules="[Autoplay, Pagination, Navigation]"
     :slidesPerView="1"
     :breakpoints="swiperBreakpoints"
     :spaceBetween="100"
     :autoplay="{
       delay: 3000,
-      disableOnInteraction: false,
+      disableOnInteraction: true,
     }"
     :pagination="{
       clickable: true,
@@ -23,6 +22,7 @@
         :instrumentName="product.instrumentName"
         :price="product.price"
         :imagePath="product.imagePath"
+        :imageClass="'max-h-3/4'"
         :cardClass="'p-8 !rounded-lg h-150'"
       />
     </swiper-slide>
