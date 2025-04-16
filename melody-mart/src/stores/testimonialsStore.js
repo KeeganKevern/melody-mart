@@ -35,8 +35,38 @@ export const useTestimonialsStore = defineStore("TestimonialsData", () => {
       quote: "Super fast delivery and amazing support!",
     },
   ];
+  const reviewData = [
+    {
+      name: "Alice",
+      title: "Fantastic Quality!",
+      rating: 5,
+      comment:
+        "The sound is rich and warm, and the build quality is top-notch.",
+    },
+    {
+      name: "Ben",
+      title: "Very Satisfied",
+      rating: 4,
+      comment:
+        "It plays beautifully. I just wish it came with extra accessories.",
+    },
+    {
+      name: "Charlie",
+      title: "Professional Feel",
+      rating: 5,
+      comment: "This instrument exceeded my expectations in every way.",
+    },
+    {
+      name: "Dana",
+      title: "Good, but slow shipping",
+      rating: 3,
+      comment:
+        "Great value for the price, though shipping took longer than expected.",
+    },
+  ];
 
   return {
     testimonialData,
+    reviewData,
   };
 });

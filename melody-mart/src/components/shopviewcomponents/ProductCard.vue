@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col justify-center just text-center bg-white border-2 border-gray-200 rounded-sm opacity-100"
+    class="flex flex-col justify-between just text-center bg-white border-2 border-gray-200 rounded-sm opacity-100"
     :class="cardClass"
   >
     <img

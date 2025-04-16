@@ -24,10 +24,12 @@ AOS.init();
     </nav>
   </header>
 
-  <RouterView class="bg-[url(../assets/images/backgroundImage.png)] p-4" />
+  <RouterView
+    class="bg-[url(../assets/images/backgroundImage.png)] p-4 min-h-dvh"
+  />
 
   <footer
-    class="grid grid-cols-4 grid-rows-2 bg-amber-900 text-white font-bold z-10"
+    class="grid grid-cols-4 grid-rows-2 bg-amber-900 text-white font-bold z-10 min-h-50"
   >
     <button>Back to top</button>
     <div class="col-span-2 flex gap-2 justify-center items-center">
@@ -41,11 +43,16 @@ AOS.init();
       class="col-start-4 flex justify-center items-center"
       >Checkout</RouterLink
     >
-    <p class="row-start-2 col-span-4">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem, id
-      dolorum cupiditate dolor officiis provident fuga nesciunt beatae porro est
-      nostrum blanditiis velit, eum, quis illum voluptates. Ex, consequuntur
-      quaerat.
+    <p class="row-start-2 col-span-4 lg:col-span-2 lg:col-start-2 p-10 pt-0">
+      This website is for demonstration purposes only.
+      <strong
+        >No musical instruments are available for purchase through this
+        site.</strong
+      >
+      The sole purpose of this project is to showcase technical skills in
+      website development, including front-end design implimentation,
+      interactivity, and user interface development. Any products displayed are
+      not puchasable from this site, and are not intended for commercial use.
     </p>
   </footer>
 </template>

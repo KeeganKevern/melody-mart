@@ -1,15 +1,19 @@
 <template>
-  <div class="pt-12">
+  <div class="pt-12 min-h-dvh">
     <SidebarContainer />
-    <div class="flex flex-wrap gap-4 justify-center">
+    <router-link
+      to="/product"
+      class="flex flex-wrap gap-4 justify-center cursor-pointer"
+    >
       <ProductCard
+        @click="handleClick(product)"
         v-for="product in catalogueDataStore.productsToDisplay"
         :instrumentName="product.instrumentName"
         :price="product.price"
         :imagePath="product.imagePath"
         :cardClass="'md:max-w-1/3 lg:max-w-1/4  p-2 md:p-4 md:mx-12 lg:my-4 lg:shadow-lg'"
       />
-    </div>
+    </router-link>
   </div>
 </template>
 
@@ -19,4 +23,7 @@ import SidebarContainer from "@/components/shopviewcomponents/SidebarContainer.v
 import { useCatalogueDataStore } from "@/stores/CatalogueDataStore.js";
 
 const catalogueDataStore = useCatalogueDataStore();
+function handleClick(product) {
+  catalogueDataStore.updateSelectedProduct(product);
+}
 </script>

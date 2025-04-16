@@ -18,13 +18,19 @@
       class="flex self-center shadow-2xl"
       :key="product.id"
     >
-      <ProductCard
-        :instrumentName="product.instrumentName"
-        :price="product.price"
-        :imagePath="product.imagePath"
-        :imageClass="'max-h-3/4'"
-        :cardClass="'p-8 !rounded-lg h-150'"
-      />
+      <router-link
+        to="/product"
+        class="flex flex-wrap gap-4 justify-center cursor-pointer"
+      >
+        <ProductCard
+          @click="handleClick(product)"
+          :instrumentName="product.instrumentName"
+          :price="product.price"
+          :imagePath="product.imagePath"
+          :imageClass="'max-h-3/4'"
+          :cardClass="'p-8 !rounded-lg h-150'"
+        />
+      </router-link>
     </swiper-slide>
   </swiper>
 </template>
@@ -40,6 +46,10 @@ import "swiper/css/navigation";
 
 import { useCatalogueDataStore } from "@/stores/CatalogueDataStore";
 const catalogueDataStore = useCatalogueDataStore();
+
+function handleClick(product) {
+  catalogueDataStore.updateSelectedProduct(product);
+}
 const swiperBreakpoints = {
   768: { slidesPerView: 2, spaceBetween: 50 },
   1080: { slidesPerView: 3, spaceBetween: 75 },

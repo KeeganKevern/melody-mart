@@ -7,7 +7,7 @@
           v-for="(testimonial, index) in testimonialStore.testimonialData"
           :key="index"
           :class="[
-            'p-6 rounded-2xl shadow-md text-white transition hover:shadow-xl flex flex-col justify-between',
+            'p-6 rounded-2xl shadow-md text-white transition hover:shadow-xl flex flex-col justify-between hover:scale-110',
             index === 1 ? 'hover:scale-200 cursor-pointer z-10' : '',
             assignedColors[index],
           ]"
@@ -29,6 +29,7 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
+import Aos from "aos";
 
 import { useTestimonialsStore } from "@/stores/testimonialsStore";
 const testimonialStore = useTestimonialsStore();

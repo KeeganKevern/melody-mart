@@ -211,6 +211,20 @@ export const useCatalogueDataStore = defineStore("CatalogueData", () => {
     listOfSelectedFilters.value = null;
   }
 
+  const selectedProduct = ref({
+    id: 0,
+    instrumentCategory: "GUITAR",
+    instrumentName: "Gibson SG",
+    colour: "RED",
+    price: 1500,
+    imagePath: "./src/assets/images/instruments/GibsonSG.jpg",
+  });
+  function updateSelectedProduct(product) {
+    selectedProduct.value = catalogueOfProducts.find(
+      (item) => item.id === product.id
+    );
+  }
+
   populateFilterData();
   updateProductsToDisplay();
   return {
@@ -220,8 +234,10 @@ export const useCatalogueDataStore = defineStore("CatalogueData", () => {
     filterSidebarHidden,
     sidebarIconPath,
     listOfSelectedFilters,
+    selectedProduct,
     toggleFilterSidebar,
     updateProductsToDisplay,
     updateFilterList,
+    updateSelectedProduct,
   };
 });
