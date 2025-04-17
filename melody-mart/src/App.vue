@@ -17,7 +17,7 @@ AOS.init();
 
     <nav class="flex justify-evenly w-full mb-5 text-xl md:text-2xl">
       <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/shop" class="">Shop</RouterLink>
+      <RouterLink to="/shop">Shop</RouterLink>
       <RouterLink to="/contact">Contact</RouterLink>
       <RouterLink to="/checkout">Checkout</RouterLink>
       <RouterLink to="/login">Login</RouterLink>

@@ -1,13 +1,6 @@
 <script setup>
 import carousel from "@/components/homecomponents/carousel.vue";
 import tesimonials from "@/components/homecomponents/tesimonials.vue";
-
-import { useCatalogueDataStore } from "@/stores/CatalogueDataStore.js";
-
-const catalogueDataStore = useCatalogueDataStore();
-function handleClick(product) {
-  catalogueDataStore.updateSelectedProduct(product);
-}
 </script>
 
 <template>
@@ -21,7 +14,9 @@ function handleClick(product) {
       <div class="m-4">
         <carousel />
       </div>
-      <tesimonials />
+      <router-link to="/contact">
+        <tesimonials />
+      </router-link>
     </div>
   </main>
 </template>

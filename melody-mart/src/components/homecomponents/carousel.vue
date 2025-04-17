@@ -15,12 +15,12 @@
   >
     <swiper-slide
       v-for="product in catalogueDataStore.catalogueOfProducts"
-      class="flex self-center shadow-2xl"
+      class="flex self-center"
       :key="product.id"
     >
       <router-link
         to="/product"
-        class="flex flex-wrap gap-4 justify-center cursor-pointer"
+        class="flex flex-wrap justify-center cursor-pointer"
       >
         <ProductCard
           @click="handleClick(product)"
