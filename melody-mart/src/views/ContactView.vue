@@ -19,12 +19,12 @@ import ContactForm from "@/components/contactviewcomponents/ContactForm.vue";
 import FormSubmitted from "@/components/contactviewcomponents/FormSubmitted.vue";
 
 import { onMounted, ref } from "vue";
-const formSubmitted = ref(true);
+const formSubmitted = ref(false);
 
 function handleEmit() {
   formSubmitted.value = true;
 }
 onMounted(() => {
-  formSubmitted.value = true;
+  formSubmitted.value = false;
 });
 </script>

@@ -29,7 +29,7 @@ AOS.init();
   />
 
   <footer
-    class="grid grid-cols-4 grid-rows-2 bg-amber-900 text-white font-bold z-10 min-h-50"
+    class="z-10 grid grid-cols-4 grid-rows-2 bg-amber-900 text-white font-bold z-10 min-h-50"
   >
     <button>Back to top</button>
     <div class="col-span-2 flex gap-2 justify-center items-center">

@@ -1,9 +1,9 @@
 <template>
   <div
-    class="flex justify-center p-20 bg-[url(../assets/images/backgroundImage.png)]"
+    class="flex justify-center p-10 md:p-20 bg-[url(../assets/images/backgroundImage.png)]"
   >
     <ProductCard
-      class="w-1/3 h-fit p-10"
+      class="md:w-150 p-10"
       :instrumentName="catalogueDataStore.selectedProduct.instrumentName"
       :price="catalogueDataStore.selectedProduct.price"
       :imagePath="catalogueDataStore.selectedProduct.imagePath"

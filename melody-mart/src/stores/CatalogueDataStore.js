@@ -212,6 +212,7 @@ export const useCatalogueDataStore = defineStore("CatalogueData", () => {
   }
 
   const selectedProduct = ref({
+    //Default product so there is always something to "buy"
     id: 0,
     instrumentCategory: "GUITAR",
     instrumentName: "Gibson SG",

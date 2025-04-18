@@ -29,7 +29,6 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import Aos from "aos";
 
 import { useTestimonialsStore } from "@/stores/testimonialsStore";
 const testimonialStore = useTestimonialsStore();

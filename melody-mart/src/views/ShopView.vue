@@ -11,7 +11,7 @@
         :instrumentName="product.instrumentName"
         :price="product.price"
         :imagePath="product.imagePath"
-        :cardClass="'md:max-w-1/3 lg:max-w-1/4  p-2 md:p-4 md:mx-12 lg:my-4 lg:shadow-lg'"
+        :cardClass="'md:max-w-1/3 lg:max-w-6/25  p-2 md:p-4 md:mx-12 lg:my-4 lg:shadow-lg'"
       />
     </router-link>
   </div>

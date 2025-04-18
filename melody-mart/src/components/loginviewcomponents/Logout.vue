@@ -3,7 +3,7 @@
     <TheButton
       @click="handleLogout"
       :buttonText="'LogOut'"
-      class="p-2 border-2 transition rounded-sm border-red-600 hover:bg-red-600 font-bold hover:text-white cursor-pointer w-full"
+      class="p-2 border-2 transition rounded-sm border-red-600 bg-red-600 font-bold hover:text-white cursor-pointer w-full shadow-xl"
     />
   </div>
 </template>
