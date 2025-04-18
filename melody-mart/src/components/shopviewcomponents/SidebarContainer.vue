@@ -5,7 +5,7 @@
     <TheButton
       :imageSrc="catalogueDataStore.sidebarIconPath"
       :imageClass="'size-4 sm:size-6 md:size-8'"
-      :class="'font-medium absolute cursor-pointer right-2 top-2 sm:right-1 sm:top-1 md:right-2 md:top-2 md:m-2'"
+      :class="'font-medium absolute cursor-pointer right-2 top-2 sm:right-1 sm:top-1 md:right-2 md:top-2 md:m-2 '"
       @click="catalogueDataStore.toggleFilterSidebar"
     />
     <section class="flex flex-col items-center gap-2 md:gap-4 md:text-3xl">

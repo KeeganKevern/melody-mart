@@ -1,56 +1,84 @@
 <template>
   <form
-    action="https://api.web3forms.com/submit"
-    method="POST"
-    class="flex flex-col items-center justify-evenly bg-yellow-200/50 rounded-md h-[30rem] md:rounded-full w-screen md:w-[55rem] md:h-[55rem] p-6 sm:text-xl md:text-3xl"
+    @submit.prevent="submitForm"
+    class="w-1/4 p-6 bg-white shadow-lg rounded-lg"
   >
-    <!-- DO NOT EXPOSE ACCESS KEY ON FRONT END -->
-    <input type="hidden" name="access_key" :value="password" />
-
-    <!-- Name Input -->
-    <label for="name" class="mb-1 text-lg font-semibold">Your Name</label>
-    <input
-      id="name"
-      type="text"
-      name="name"
-      required
-      placeholder="Enter your name..."
-      class="w-4/5 max-w-md border-2 border-black rounded-md bg-white p-2 mb-4 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-    />
-
-    <!-- Email Input -->
-    <label for="email" class="mb-1 text-lg font-semibold">Email Address</label>
-    <input
-      id="email"
-      type="email"
-      name="email"
-      required
-      placeholder="Enter your email address..."
-      class="w-4/5 max-w-md border-2 border-black rounded-md bg-white p-2 mb-4 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-    />
-
-    <!-- Message Textarea -->
-    <label for="message" class="mb-1 text-lg font-semibold">Your Message</label>
-    <textarea
-      id="message"
-      name="message"
-      required
-      placeholder="Enter your message..."
-      class="w-4/5 max-w-md border-2 border-black rounded-md bg-white p-2 mb-6 min-h-[10rem] focus:outline-none focus:ring-2 focus:ring-yellow-400"
-    ></textarea>
-
-    <!-- Honeypot Spam Protection -->
-    <input type="checkbox" name="botcheck" class="hidden" />
-
+    <div class="mb-4">
+      <label for="name" class="block text-sm font-medium text-gray-700"
+        >Name</label
+      >
+      <input
+        type="text"
+        id="name"
+        name="name"
+        v-model="name"
+        class="mt-2 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-indigo-500"
+        placeholder="Enter your name"
+      />
+    </div>
+    <div class="mb-4">
+      <label for="email" class="block text-sm font-medium text-gray-700"
+        >Email</label
+      >
+      <input
+        type="email"
+        id="email"
+        name="email"
+        v-model="email"
+        class="mt-2 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-indigo-500"
+        placeholder="Enter your email"
+      />
+    </div>
+    <div class="mb-6">
+      <label for="message" class="block text-sm font-medium text-gray-700"
+        >Message</label
+      >
+      <textarea
+        id="message"
+        name="message"
+        v-model="message"
+        class="mt-2 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-indigo-500"
+        rows="4"
+        placeholder="Enter your message"
+      ></textarea>
+    </div>
     <button
       type="submit"
-      class="border-2 border-black px-6 py-2 rounded-md text-lg bg-yellow-100 hover:bg-yellow-300 transition-colors duration-300 cursor-pointer"
+      class="cursor-pointer w-full py-3 px-4 bg-indigo-600 text-white font-semibold rounded-md shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
     >
-      Send!
+      Send Message
     </button>
   </form>
 </template>
 
 <script setup>
-const password = import.meta.env.VITE_SECRET_PASSWORD;
+import { ref } from "vue";
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_CONTACTAPIKEY;
+const name = ref("");
+const email = ref("");
+const message = ref("");
+
+const emit = defineEmits(["formSuccess"]);
+const submitForm = async () => {
+  const response = await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      access_key: WEB3FORMS_ACCESS_KEY,
+      name: name.value,
+      email: email.value,
+      message: message.value,
+    }),
+  });
+  const result = await response.json();
+
+  if (result.sucess) {
+    emit("formSuccess", true);
+  } else {
+    emit("formSuccess", false);
+  }
+};
 </script>

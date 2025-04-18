@@ -29,6 +29,7 @@ import { useToast } from "vue-toastification";
 const route = useRoute();
 const toast = useToast();
 
+//Inform the user of their redirection to Login
 onMounted(() => {
   if (route.query.reason === "auth") {
     toast.warning("You must be logged in to access the checkout page.", {
