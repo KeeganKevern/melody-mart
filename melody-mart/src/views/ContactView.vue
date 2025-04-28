@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center gap-20 md:gap-0">
+  <div class="flex flex-col items-center md:gap-0">
     <h2
       class="text-center font-bold text-2xl lg:text-4xl text-white italic mix-blend-overlay cursor-default m-10 lg:m-20"
     >

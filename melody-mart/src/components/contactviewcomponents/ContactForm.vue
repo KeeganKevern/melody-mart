@@ -1,7 +1,7 @@
 <template>
   <form
     @submit.prevent="submitForm"
-    class="w-1/4 p-6 bg-white shadow-lg rounded-lg"
+    class="lg:w-1/4 p-6 bg-white shadow-lg rounded-lg"
   >
     <div class="mb-4">
       <label for="name" class="block text-sm font-medium text-gray-700"

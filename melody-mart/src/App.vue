@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import ThemeSlider from "@/components/headercomponents/ThemeSlider.vue";
-
+//Animate on scroll
 import "aos/dist/aos.css";
 import AOS from "aos";
 
@@ -29,10 +29,10 @@ AOS.init();
   />
 
   <footer
-    class="z-10 grid grid-cols-4 grid-rows-2 bg-amber-900 text-white font-bold z-10 min-h-50"
+    class="grid grid-cols-4 grid-rows-3 bg-amber-900 text-white font-bold z-10"
   >
     <button>Back to top</button>
-    <div class="col-span-2 flex gap-2 justify-center items-center">
+    <div class="col-span-2 flex justify-around items-center">
       <p>icon</p>
       <p>icon</p>
       <p>icon</p>
@@ -43,7 +43,9 @@ AOS.init();
       class="col-start-4 flex justify-center items-center"
       >Checkout</RouterLink
     >
-    <p class="row-start-2 col-span-4 lg:col-span-2 lg:col-start-2 p-10 pt-0">
+    <p
+      class="row-start-2 row-span-2 col-span-4 lg:col-span-2 lg:col-start-2 p-10 pt-0"
+    >
       This website is for demonstration purposes only.
       <strong
         >No musical instruments are available for purchase through this
