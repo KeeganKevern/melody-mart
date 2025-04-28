@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-fit md:w-3/4 flex justify-around items-center gap-4 rounded-md bg-white p-4 md:p-12 shadow-xl border-2 border-gray-200"
+    class="w-fit md:w-3/4 lg:w-1/2 flex justify-around items-center gap-4 rounded-md bg-white p-4 md:p-12 shadow-xl border-2 border-gray-200"
   >
     <img
       class="w-1/2 md:w-1/4 p-2 rounded-lg border-2 border-gray-200 shadow"
@@ -17,7 +17,7 @@
 <script setup>
 const props = defineProps({
   instrumentName: { type: String, required: true },
-  instrumentPrice: { type: String, required: true },
+  instrumentPrice: { type: [String, Number], required: true },
   imagePath: { type: String, required: true },
 });
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-1/5 w-dvw fixed bottom-0 p-10 bg-gray-100 flex flex-col border-t-4 border-gray-200"
+    class="h-1/5 w-dvw fixed bottom-0 p-10 pb-50 md:pb-0 bg-gray-100 flex flex-col border-t-4 border-gray-200"
   >
     <div class="flex justify-around m-4">
       <h3 class="text-2xl">Total Cost :</h3>

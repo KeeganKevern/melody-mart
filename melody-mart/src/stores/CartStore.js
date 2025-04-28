@@ -20,5 +20,8 @@ export const useCartStore = defineStore("cart", () => {
   function updateCartValue() {
     cartValue.value = cart.value.reduce((sum, item) => sum + +item.price, 0);
   }
-  return { cart, cartValue, addToCart };
+
+  const isCartEmpty = computed(() => cart.value.length === 0);
+
+  return { cart, cartValue, isCartEmpty, addToCart };
 });

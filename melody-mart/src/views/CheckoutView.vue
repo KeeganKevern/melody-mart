@@ -19,8 +19,5 @@ import { useCartStore } from "@/stores/CartStore";
 import { ref } from "vue";
 const cartStore = useCartStore();
 const cart = ref(cartStore.cart);
-const cartEmpty = ref(false);
-// if (cartStore.cart.values.length !== 0) {
-//   // cartEmpty = false;
-// }
+const cartEmpty = cartStore.isCartEmpty;
 </script>

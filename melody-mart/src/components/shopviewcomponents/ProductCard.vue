@@ -27,10 +27,10 @@ import { useCartStore } from "@/stores/CartStore";
 const cartStore = useCartStore();
 defineProps({
   instrumentName: { type: String, required: true },
-  price: { type: Number, required: true },
+  price: { type: [Number, String], required: true },
   imagePath: { type: String, required: true },
-  cardClass: { type: String, required: true },
-  imageClass: { type: String, required: true },
+  cardClass: { type: String, required: false },
+  imageClass: { type: String, required: false },
 });
 function handleClick(instrumentName) {
   cartStore.addToCart(instrumentName);
