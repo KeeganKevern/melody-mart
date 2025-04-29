@@ -34,7 +34,7 @@ const cartStore = useCartStore();
   </header>
 
   <RouterView
-    class="bg-[url(../assets/images/backgroundImage.png)] p-4 min-h-dvh"
+    class="bg-[url(../assets/images/backgroundImage.png)] p-4 min-h-100 md:min-h-150"
   />
 
   <footer

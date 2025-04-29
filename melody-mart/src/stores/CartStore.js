@@ -7,7 +7,6 @@ export const useCartStore = defineStore("cart", () => {
   const products = catalogueDataStore.catalogueOfProducts;
 
   const cart = ref([]);
-  const cartValue = ref();
   function addToCart(productToFind) {
     let foundProduct = products.find(
       (product) => product.instrumentName === productToFind
@@ -17,13 +16,31 @@ export const useCartStore = defineStore("cart", () => {
     updateCartValue();
   }
 
-  function updateCartValue() {
-    cartValue.value = cart.value.reduce((sum, item) => sum + +item.price, 0);
-  }
+  const cartValue = computed(() => {
+    return cart.value.reduce((sum, item) => sum + +item.price, 0);
+  });
 
   const isCartEmpty = computed(() => cart.value.length === 0);
 
   const quantityInCart = computed(() => cart.value.length);
 
-  return { cart, cartValue, isCartEmpty, quantityInCart, addToCart };
+  function removeFromBasket(instrumentNameValue) {
+    console.log(cart.value);
+    const index = cart.value.findIndex(
+      (item) => item.instrumentName === instrumentNameValue
+    );
+    if (index !== -1) {
+      cart.value.splice(index, 1);
+    }
+    console.log(cart.value);
+  }
+
+  return {
+    cart,
+    cartValue,
+    isCartEmpty,
+    quantityInCart,
+    addToCart,
+    removeFromBasket,
+  };
 });

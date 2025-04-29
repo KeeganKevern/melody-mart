@@ -11,13 +11,24 @@
       <h3 class="text-2xl">{{ instrumentName }}</h3>
       <div class="w-full border-2 border-indigo-500"></div>
       <h4 class="text-2xl text-indigo-500 italic">£{{ instrumentPrice }}</h4>
+      <TheButton
+        :buttonText="'Remove'"
+        :class="'mt-8 border-2 border-red-600 rounded-md cursor-pointer hover:bg-red-600 hover:font-bold hover:text-white'"
+        @click="handleClick(instrumentName)"
+      />
     </div>
   </div>
 </template>
 <script setup>
+import TheButton from "../universalcomponents/TheButton.vue";
+import { useCartStore } from "@/stores/CartStore";
+const cartStore = useCartStore();
 const props = defineProps({
   instrumentName: { type: String, required: true },
   instrumentPrice: { type: [String, Number], required: true },
   imagePath: { type: String, required: true },
 });
+function handleClick(instrumentName) {
+  cartStore.removeFromBasket(instrumentName);
+}
 </script>

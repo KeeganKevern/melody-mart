@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col gap-10 items-center">
-    <emptyBasket v-if="cartEmpty" />
+    <emptyBasket v-if="cartStore.isCartEmpty" />
     <basket
       v-if="!cartEmpty"
       v-for="item in cart"
@@ -19,5 +19,4 @@ import { useCartStore } from "@/stores/CartStore";
 import { ref } from "vue";
 const cartStore = useCartStore();
 const cart = ref(cartStore.cart);
-const cartEmpty = cartStore.isCartEmpty;
 </script>
