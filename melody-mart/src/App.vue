@@ -1,11 +1,14 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import ThemeSlider from "@/components/headercomponents/ThemeSlider.vue";
+import BasketContainer from "./components/headercomponents/BasketContainer.vue";
 //Animate on scroll
 import "aos/dist/aos.css";
 import AOS from "aos";
-
 AOS.init();
+
+import { useCartStore } from "./stores/CartStore";
+const cartStore = useCartStore();
 </script>
 
 <template>
@@ -14,6 +17,12 @@ AOS.init();
   >
     <h1 class="text-4xl font-extrabold italic m-5">Melody-Mart</h1>
     <ThemeSlider class="absolute left-5 top-5" />
+
+    <RouterLink to="/checkout">
+      <BasketContainer
+        class="absolute right-5 top-5"
+        :quantityInCart="cartStore.quantityInCart"
+    /></RouterLink>
 
     <nav class="flex justify-evenly w-full mb-5 text-xl md:text-2xl">
       <RouterLink to="/">Home</RouterLink>
@@ -41,8 +50,9 @@ AOS.init();
     <RouterLink
       to="/checkout"
       class="col-start-4 flex justify-center items-center"
-      >Checkout</RouterLink
     >
+      <BasketContainer :quantityInCart="cartStore.quantityInCart"
+    /></RouterLink>
     <p
       class="row-start-2 row-span-2 col-span-4 lg:col-span-2 lg:col-start-2 p-10 pt-0"
     >
