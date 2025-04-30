@@ -1,16 +1,3 @@
-<script setup>
-import { RouterLink, RouterView } from "vue-router";
-import ThemeSlider from "@/components/headercomponents/ThemeSlider.vue";
-import BasketContainer from "./components/headercomponents/BasketContainer.vue";
-//Animate on scroll
-import "aos/dist/aos.css";
-import AOS from "aos";
-AOS.init();
-
-import { useCartStore } from "./stores/CartStore";
-const cartStore = useCartStore();
-</script>
-
 <template>
   <header
     class="flex flex-col sticky top-0 w-full items-center justify-between bg-amber-900 text-white z-10"
@@ -40,11 +27,23 @@ const cartStore = useCartStore();
   <footer
     class="grid grid-cols-4 grid-rows-3 bg-amber-900 text-white font-bold z-10"
   >
-    <button>Back to top</button>
-    <div class="col-span-2 flex justify-around items-center">
-      <p>icon</p>
-      <p>icon</p>
-      <p>icon</p>
+    <TheButton
+      :imageClass="'size-12 ml-6'"
+      :imageSrc="'../src/assets/icons/uparrow.svg'"
+      @click="scrollToTop()"
+    />
+
+    <div class="col-span-2 flex justify-around items-center gap-6">
+      <a href="mailto:keegankevern.work@gmail.com"
+        ><img src="../src/assets/icons/email.svg" alt="mailto"
+      /></a>
+      <a href="https://www.linkedin.com/in/keegan-kevern-40959612b/"
+        ><img src="../src/assets/icons/linkedIn.svg" alt="Linked in"
+      /></a>
+
+      <a href="https://github.com/KeeganKevern"
+        ><img src="../src/assets/icons/github.svg" alt="github"
+      /></a>
     </div>
 
     <RouterLink
@@ -68,3 +67,21 @@ const cartStore = useCartStore();
     </p>
   </footer>
 </template>
+
+<script setup>
+import { RouterLink, RouterView } from "vue-router";
+import ThemeSlider from "@/components/headercomponents/ThemeSlider.vue";
+import BasketContainer from "./components/headercomponents/BasketContainer.vue";
+import TheButton from "./components/universalcomponents/TheButton.vue";
+//Animate on scroll
+import "aos/dist/aos.css";
+import AOS from "aos";
+AOS.init();
+
+import { useCartStore } from "./stores/CartStore";
+const cartStore = useCartStore();
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+</script>
