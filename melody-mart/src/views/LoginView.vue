@@ -11,7 +11,7 @@
       v-if="!authStore.user"
       class="text-center font-bold text-2xl lg:text-4xl italic cursor-text m-10 lg:m-20"
     >
-      DEFAULT EMAIL @ PASSWORD<br />default@defaultemail.com
+      DEFAULT EMAIL & PASSWORD<br />default@defaultemail.com
       <br />D3F4(_)lt_P4$$W0Rd
     </p>
   </main>

@@ -14,7 +14,7 @@
       <p class="text-xl font-medium">£{{ price }}</p>
 
       <TheButton
-        @click="handleClick(instrumentName)"
+        @click="handleAddToCartClick(instrumentName)"
         :buttonText="'Add to Cart'"
         class="p-2 border-2 border-emerald-600 hover:bg-emerald-600 hover:text-white hover:font-bold transition rounded-md cursor-pointer h"
       />
@@ -32,7 +32,7 @@ defineProps({
   cardClass: { type: String, required: false },
   imageClass: { type: String, required: false },
 });
-function handleClick(instrumentName) {
+function handleAddToCartClick(instrumentName) {
   cartStore.addToCart(instrumentName);
 }
 </script>
