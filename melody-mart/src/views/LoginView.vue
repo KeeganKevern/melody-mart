@@ -9,6 +9,7 @@
     <Logout v-if="authStore.user" />
     <p
       v-if="!authStore.user"
+      aria-live="polite"
       class="text-center font-bold text-2xl lg:text-4xl italic cursor-text m-10 lg:m-20"
     >
       DEFAULT EMAIL & PASSWORD<br />default@defaultemail.com

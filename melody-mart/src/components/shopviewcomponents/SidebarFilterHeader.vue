@@ -7,6 +7,7 @@
     </h3>
     <TheButton
       @click="handleClick"
+      :aria-expanded="openCloseState === '-'"
       :buttonText="openCloseState"
       :class="'cursor-pointer'"
     />

@@ -1,6 +1,6 @@
 <script setup>
-import carousel from "@/components/homecomponents/carousel.vue";
-import tesimonials from "@/components/homecomponents/tesimonials.vue";
+import Carousel from "@/components/homecomponents/carousel.vue";
+import Testimonials from "@/components/homecomponents/testimonials.vue";
 </script>
 
 <template>
@@ -12,10 +12,10 @@ import tesimonials from "@/components/homecomponents/tesimonials.vue";
     </h2>
     <div class="flex flex-col justify-around gap-20">
       <div class="m-4">
-        <carousel />
+        <Carousel />
       </div>
       <router-link to="/contact">
-        <tesimonials />
+        <Testimonials />
       </router-link>
     </div>
   </main>

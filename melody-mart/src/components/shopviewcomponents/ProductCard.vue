@@ -5,7 +5,7 @@
   >
     <img
       :src="imagePath"
-      alt="A Picture of an instrument"
+      :alt="`A picture of the ${instrumentName}`"
       class="flex self-center"
       :class="imageClass"
     />
@@ -16,7 +16,8 @@
       <TheButton
         @click="handleAddToCartClick(instrumentName)"
         :buttonText="'Add to Cart'"
-        class="p-2 border-2 border-emerald-600 hover:bg-emerald-600 hover:text-white hover:font-bold transition rounded-md cursor-pointer h"
+        :aria-label="`Add ${instrumentName} to cart`"
+        class="p-2 border-2 border-emerald-600 hover:bg-emerald-600 hover:text-white hover:font-bold transition rounded-md cursor-pointer"
       />
     </div>
   </div>

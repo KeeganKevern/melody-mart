@@ -1,5 +1,7 @@
 <template>
   <swiper
+    role="region"
+    aria-label="Featured Products Carousel"
     :modules="[Autoplay, Pagination, Navigation]"
     :slidesPerView="1"
     :breakpoints="swiperBreakpoints"
@@ -44,14 +46,15 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
+const swiperBreakpoints = {
+  768: { slidesPerView: 2, spaceBetween: 50 },
+  1080: { slidesPerView: 3, spaceBetween: 75 },
+};
+
 import { useCatalogueDataStore } from "@/stores/CatalogueDataStore";
 const catalogueDataStore = useCatalogueDataStore();
 
 function handleClick(product) {
   catalogueDataStore.updateSelectedProduct(product);
 }
-const swiperBreakpoints = {
-  768: { slidesPerView: 2, spaceBetween: 50 },
-  1080: { slidesPerView: 3, spaceBetween: 75 },
-};
 </script>

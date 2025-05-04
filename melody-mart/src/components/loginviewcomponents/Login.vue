@@ -8,13 +8,18 @@
       <input
         v-model="email"
         type="email"
+        required
         placeholder="Email"
+        autocomplete="email"
+        aria-label="Email address"
         class="p-2 rounded-sm text-center ring-2 bg-emerald-200 hover:bg-teal-300"
       />
       <input
         v-model="password"
+        required
         type="password"
         placeholder="Password"
+        aria-label="Password"
         class="p-2 rounded-sm text-center ring-2 bg-emerald-200 hover:bg-teal-300"
       />
       <button

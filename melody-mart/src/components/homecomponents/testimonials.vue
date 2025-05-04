@@ -2,9 +2,10 @@
   <section class="py-16 min-h-fit">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-4xl font-bold text-center mb-12">Testimonials</h2>
-      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3" role="list">
         <div
           v-for="(testimonial, index) in testimonialStore.testimonialData"
+          role="listitem"
           :key="index"
           :class="[
             'p-6 rounded-2xl shadow-md text-white transition hover:shadow-xl flex flex-col justify-between hover:scale-110',

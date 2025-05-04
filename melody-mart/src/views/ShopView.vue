@@ -6,8 +6,9 @@
       class="flex flex-wrap gap-4 justify-center cursor-pointer"
     >
       <ProductCard
-        @click="handleClick(product)"
+        @click="handleProductClick(product)"
         v-for="product in catalogueDataStore.productsToDisplay"
+        :aria-label="`Product card showing ${instrumentName}`"
         :instrumentName="product.instrumentName"
         :price="product.price"
         :imagePath="product.imagePath"
@@ -23,7 +24,7 @@ import SidebarContainer from "@/components/shopviewcomponents/SidebarContainer.v
 import { useCatalogueDataStore } from "@/stores/CatalogueDataStore.js";
 
 const catalogueDataStore = useCatalogueDataStore();
-function handleClick(product) {
+function handleProductClick(product) {
   catalogueDataStore.updateSelectedProduct(product);
 }
 </script>
